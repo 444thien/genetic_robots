@@ -19,7 +19,7 @@ int main()
     Robot robotArray[200];
 
     // Simulation for 200 robots for a number of generations
-    for (int i = 1; i < 200; i++)
+    for (int i = 1; i < 10; i++)
     {
         cout << "Running generation: " << i << endl;
         // Simulation for each robot
@@ -51,7 +51,6 @@ int main()
         cout << "The highest amount of batteries collected by a robot : " << robotArray[199].getCollectedBatteries() << endl;
         cout << "The lowest amount of batteries collected by a robot: " << robotArray[0].getCollectedBatteries() << endl << endl << endl;
 
-        cout << "Swapping genes now" << endl;
         // Swapping genes for the top 100 robots to the last 100 robots
         for (int j = 0; j < 10; j++)
         {
@@ -83,7 +82,6 @@ int main()
             
         }
 
-        cout << "Resetting stats" << endl;
         for (int j = 0; j < populationSize; j++)
         {
             robotArray[j].resetStats();
@@ -104,9 +102,10 @@ void testUnit()
     cout << testCounter << endl;
 
     robotTest.readSensors(mapTest);
-    cout << "Sensor Data (N S W E): \n";
+    cout << "Sensor Data (N S W E):" << endl;
     robotTest.printSensors();
     cout << endl;
+    cout << "(" << robotTest.getxPos() << "," << robotTest.getyPos() << ")" << endl;
 
     int energyLevel = robotTest.getEnergy();
     cout << energyLevel << endl;
